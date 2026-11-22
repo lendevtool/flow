@@ -1,0 +1,14 @@
+{
+  "title": "明细表空集合",
+  "items": [],
+  "wideRows": [],
+  "fixedRows": [],
+  "groupRows": [],
+  "summary": {
+    "headers": [
+      "处理项",
+      "条数"
+    ],
+    "rows": []
+  }
+}

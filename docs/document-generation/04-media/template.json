@@ -1,0 +1,229 @@
+{
+  "code": "sample-media",
+  "name": "内嵌图片和 Word 原生图表",
+  "templateFormat": "POI_TL_V1",
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "媒体报告",
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "文件标题"
+      },
+      "logo": {
+        "type": "object",
+        "title": "图片",
+        "properties": {
+          "mediaType": {
+            "type": "string",
+            "title": "媒体类型",
+            "enum": [
+              "image/png",
+              "image/jpeg"
+            ]
+          },
+          "base64": {
+            "type": "string",
+            "title": "Base64 数据",
+            "minLength": 1
+          },
+          "width": {
+            "type": "integer",
+            "title": "显示宽度",
+            "minimum": 1,
+            "maximum": 520
+          },
+          "height": {
+            "type": "integer",
+            "title": "显示高度",
+            "minimum": 1,
+            "maximum": 750
+          },
+          "alt": {
+            "type": "string",
+            "title": "替代文字"
+          }
+        },
+        "required": [
+          "mediaType",
+          "base64",
+          "width",
+          "height",
+          "alt"
+        ],
+        "additionalProperties": false
+      },
+      "activityBar": {
+        "type": "object",
+        "title": "原生图表",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "图表标题"
+          },
+          "categories": {
+            "type": "array",
+            "title": "类目",
+            "items": {
+              "type": "string",
+              "title": "类目"
+            },
+            "minItems": 1
+          },
+          "series": {
+            "type": "array",
+            "title": "系列",
+            "items": {
+              "type": "object",
+              "title": "数据系列",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "系列名"
+                },
+                "values": {
+                  "type": "array",
+                  "title": "数据值",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "values"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "title",
+          "categories",
+          "series"
+        ],
+        "additionalProperties": false
+      },
+      "activityLine": {
+        "type": "object",
+        "title": "原生图表",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "图表标题"
+          },
+          "categories": {
+            "type": "array",
+            "title": "类目",
+            "items": {
+              "type": "string",
+              "title": "类目"
+            },
+            "minItems": 1
+          },
+          "series": {
+            "type": "array",
+            "title": "系列",
+            "items": {
+              "type": "object",
+              "title": "数据系列",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "系列名"
+                },
+                "values": {
+                  "type": "array",
+                  "title": "数据值",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "values"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "title",
+          "categories",
+          "series"
+        ],
+        "additionalProperties": false
+      },
+      "mixPie": {
+        "type": "object",
+        "title": "原生图表",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "图表标题"
+          },
+          "categories": {
+            "type": "array",
+            "title": "类目",
+            "items": {
+              "type": "string",
+              "title": "类目"
+            },
+            "minItems": 1
+          },
+          "series": {
+            "type": "array",
+            "title": "系列",
+            "items": {
+              "type": "object",
+              "title": "数据系列",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "系列名"
+                },
+                "values": {
+                  "type": "array",
+                  "title": "数据值",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "values"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "title",
+          "categories",
+          "series"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "title",
+      "activityBar",
+      "activityLine",
+      "mixPie"
+    ],
+    "additionalProperties": false
+  },
+  "renderConfig": {
+    "charts": {
+      "activityBar": "BAR",
+      "activityLine": "LINE",
+      "mixPie": "PIE"
+    }
+  }
+}

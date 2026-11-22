@@ -1,0 +1,74 @@
+{
+  "title": "月度办理图表 JPEG 样例",
+  "logo": {
+    "mediaType": "image/jpeg",
+    "base64": "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",
+    "width": 265,
+    "height": 66,
+    "alt": "Flow 已核对业务资料"
+  },
+  "activityBar": {
+    "title": "月度办理量",
+    "categories": [
+      "八月",
+      "九月",
+      "十月"
+    ],
+    "series": [
+      {
+        "name": "收件",
+        "values": [
+          16,
+          25,
+          22
+        ]
+      },
+      {
+        "name": "完成",
+        "values": [
+          14,
+          21,
+          23
+        ]
+      }
+    ]
+  },
+  "activityLine": {
+    "title": "月度处理时长",
+    "categories": [
+      "七月",
+      "八月",
+      "九月",
+      "十月"
+    ],
+    "series": [
+      {
+        "name": "平均工作日",
+        "values": [
+          4.2,
+          3.8,
+          3.4,
+          3.2
+        ]
+      }
+    ]
+  },
+  "mixPie": {
+    "title": "十月办理构成",
+    "categories": [
+      "复核",
+      "审批",
+      "归档"
+    ],
+    "series": [
+      {
+        "name": "件数",
+        "values": [
+          9,
+          5,
+          8
+        ]
+      }
+    ]
+  }
+}

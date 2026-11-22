@@ -1,0 +1,95 @@
+spring:
+  messages:
+    basename: i18n/messages
+    fallback-to-system-locale: false
+  config:
+    import:
+      - optional:file:./loc.env[.properties]
+      - optional:file:./backend/loc.env[.properties]
+  profiles:
+    active: mysql
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      database: ${REDIS_DATABASE:0}
+      username: ${REDIS_USERNAME:}
+      password: ${REDIS_PASSWORD:}
+      connect-timeout: 3s
+      timeout: 3s
+      lettuce:
+        pool:
+          max-active: 16
+          max-idle: 8
+          min-idle: 0
+          max-wait: 3s
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
+server:
+  port: 7086
+sa-token:
+  token-name: Authorization
+  token-prefix: Bearer
+  token-style: random-64
+  is-concurrent: true
+  is-share: false
+  is-read-cookie: false
+  is-read-body: false
+mybatis-flex:
+  configuration:
+    # Flex 批量操作使用独立的 SqlSession，避免写入后读到旧值。
+    local-cache-scope: statement
+
+flow:
+  api-docs:
+    public: ${FLOW_API_DOCS_PUBLIC:false}
+  open-api:
+    enabled: ${FLOW_OPEN_API_ENABLED:false}
+    environment: ${FLOW_OPEN_API_ENVIRONMENT:local}
+    public-base-url: ${FLOW_OPEN_API_BASE_URL:http://localhost:7086}
+    trusted-proxy-addresses: ${FLOW_OPEN_API_TRUSTED_PROXY_ADDRESSES:}
+  mail:
+    # 使用独立的 32 字节 Base64 密钥供多实例共享。
+    credential-key: ${FLOW_MAIL_CREDENTIAL_KEY:}
+
+document:
+  generation:
+    input-retention: ${DOCUMENT_GENERATION_INPUT_RETENTION:30d}
+    running-timeout: ${DOCUMENT_GENERATION_RUNNING_TIMEOUT:5m}
+    concurrency: ${DOCUMENT_GENERATION_CONCURRENCY:2}
+    maintenance-enabled: ${DOCUMENT_GENERATION_MAINTENANCE_ENABLED:true}
+    maintenance-delay: ${DOCUMENT_GENERATION_MAINTENANCE_DELAY:60s}
+    samples:
+      enabled: ${DOCUMENT_GENERATION_SAMPLES_ENABLED:true}
+      retry-delay: ${DOCUMENT_GENERATION_SAMPLES_RETRY_DELAY:1m}
+      max-attempts: ${DOCUMENT_GENERATION_SAMPLES_MAX_ATTEMPTS:3}
+  sftp:
+    host: ${DOCUMENT_SFTP_HOST:localhost}
+    port: ${DOCUMENT_SFTP_PORT:22}
+    username: ${DOCUMENT_SFTP_USERNAME:sftp}
+    root: ${DOCUMENT_SFTP_ROOT:documents}
+    private-key: ${DOCUMENT_SFTP_PRIVATE_KEY:}
+    known-hosts: ${DOCUMENT_SFTP_KNOWN_HOSTS:}
+    connect-timeout: ${DOCUMENT_SFTP_CONNECT_TIMEOUT:5s}
+    io-timeout: ${DOCUMENT_SFTP_IO_TIMEOUT:30s}
+    pool-max-total: ${DOCUMENT_SFTP_POOL_MAX_TOTAL:8}
+    pool-max-wait: ${DOCUMENT_SFTP_POOL_MAX_WAIT:3s}
+    pool-idle-timeout: ${DOCUMENT_SFTP_POOL_IDLE_TIMEOUT:1m}
+
+security:
+  mfa:
+    # 用于加解密数据库中的 MFA 数据密钥。
+    key-storage-encryption-key: ${MFA_KEY_STORAGE_ENCRYPTION_KEY:}
+  domain:
+    ldaps-url: ${AD_LDAPS_URL:}
+  bootstrap:
+    username: ${BOOTSTRAP_ADMIN_USERNAME:admin}
+    password: ${BOOTSTRAP_ADMIN_PASSWORD:}
+  rate-limit:
+    enabled: true
+    login-per-ip: 30
+    login-per-account: 10
+    captcha-per-ip: 30
+    window-seconds: 60

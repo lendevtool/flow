@@ -1,0 +1,31 @@
+{
+  "title": "多章节业务报告",
+  "chapters": [
+    {
+      "heading": "资料复核",
+      "summary": "以平台留档的原件为准。",
+      "entries": [
+        {
+          "heading": "附件清单",
+          "content": "签收回执和批次底稿已经核对。"
+        },
+        {
+          "heading": "问题记录",
+          "content": "本批次没有待纠正的字段。"
+        }
+      ]
+    },
+    {
+      "heading": "版本归档",
+      "summary": "按照归档编号归集已确认的资料。",
+      "entries": [
+        {
+          "heading": "成品命名",
+          "content": "成品按业务编码和生成时间登记。"
+        }
+      ]
+    }
+  ],
+  "showAppendix": true,
+  "appendixText": "补录只接受可追溯的源文档。"
+}

@@ -1,0 +1,58 @@
+{
+  "code": "sample-team",
+  "name": "团队子模板",
+  "templateFormat": "POI_TL_V1",
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "团队",
+    "properties": {
+      "team": {
+        "type": "string",
+        "title": "团队名"
+      },
+      "overview": {
+        "type": "string",
+        "title": "团队说明"
+      },
+      "members": {
+        "type": "array",
+        "title": "成员",
+        "items": {
+          "type": "object",
+          "title": "成员",
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "姓名"
+            },
+            "role": {
+              "type": "string",
+              "title": "职责"
+            },
+            "note": {
+              "type": "string",
+              "title": "说明"
+            }
+          },
+          "required": [
+            "name",
+            "role",
+            "note"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "team",
+      "overview",
+      "members"
+    ],
+    "additionalProperties": false
+  },
+  "renderConfig": {},
+  "sampleChildTemplates": {
+    "members": "05-subtemplates/member"
+  }
+}

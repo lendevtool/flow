@@ -1,0 +1,84 @@
+{
+  "code": "sample-sections",
+  "name": "动态章节和条件显示",
+  "templateFormat": "POI_TL_V1",
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "章节报告",
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "文件标题"
+      },
+      "chapters": {
+        "type": "array",
+        "title": "章节列表",
+        "items": {
+          "type": "object",
+          "title": "章节",
+          "properties": {
+            "heading": {
+              "type": "string",
+              "title": "章节标题"
+            },
+            "summary": {
+              "type": "string",
+              "title": "章节摘要"
+            },
+            "entries": {
+              "type": "array",
+              "title": "小节列表",
+              "items": {
+                "type": "object",
+                "title": "小节",
+                "properties": {
+                  "heading": {
+                    "type": "string",
+                    "title": "小节标题"
+                  },
+                  "content": {
+                    "type": "string",
+                    "title": "小节内容"
+                  }
+                },
+                "required": [
+                  "heading",
+                  "content"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "heading",
+            "summary",
+            "entries"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "showAppendix": {
+        "type": "boolean",
+        "title": "显示附录"
+      },
+      "appendixText": {
+        "type": "string",
+        "title": "附录说明"
+      }
+    },
+    "required": [
+      "title",
+      "chapters",
+      "showAppendix"
+    ],
+    "additionalProperties": false
+  },
+  "renderConfig": {
+    "conditions": {
+      "showNoAppendix": {
+        "not": "showAppendix"
+      }
+    }
+  }
+}

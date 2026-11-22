@@ -1,0 +1,290 @@
+{
+  "code": "sample-complete-report",
+  "name": "综合业务报告",
+  "templateFormat": "POI_TL_V1",
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "综合业务报告",
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "文件标题"
+      },
+      "reportCode": {
+        "type": "string",
+        "title": "报告编号"
+      },
+      "period": {
+        "type": "string",
+        "title": "报告期间"
+      },
+      "chapters": {
+        "type": "array",
+        "title": "章节列表",
+        "items": {
+          "type": "object",
+          "title": "章节",
+          "properties": {
+            "heading": {
+              "type": "string",
+              "title": "章节标题"
+            },
+            "summary": {
+              "type": "string",
+              "title": "章节摘要"
+            },
+            "entries": {
+              "type": "array",
+              "title": "小节列表",
+              "items": {
+                "type": "object",
+                "title": "小节",
+                "properties": {
+                  "heading": {
+                    "type": "string",
+                    "title": "小节标题"
+                  },
+                  "content": {
+                    "type": "string",
+                    "title": "小节内容"
+                  }
+                },
+                "required": [
+                  "heading",
+                  "content"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "heading",
+            "summary",
+            "entries"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "groupRows": {
+        "type": "array",
+        "title": "分组明细",
+        "items": {
+          "type": "object",
+          "title": "一条明细",
+          "properties": {
+            "group": {
+              "type": "string",
+              "title": "业务分组"
+            },
+            "name": {
+              "type": "string",
+              "title": "项目名称"
+            },
+            "detail": {
+              "type": "string",
+              "title": "描述"
+            },
+            "quantity": {
+              "type": "integer",
+              "title": "数量",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "group",
+            "name",
+            "detail",
+            "quantity"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "logo": {
+        "type": "object",
+        "title": "图片",
+        "properties": {
+          "mediaType": {
+            "type": "string",
+            "title": "媒体类型",
+            "enum": [
+              "image/png",
+              "image/jpeg"
+            ]
+          },
+          "base64": {
+            "type": "string",
+            "title": "Base64 数据",
+            "minLength": 1
+          },
+          "width": {
+            "type": "integer",
+            "title": "显示宽度",
+            "minimum": 1,
+            "maximum": 520
+          },
+          "height": {
+            "type": "integer",
+            "title": "显示高度",
+            "minimum": 1,
+            "maximum": 750
+          },
+          "alt": {
+            "type": "string",
+            "title": "替代文字"
+          }
+        },
+        "required": [
+          "mediaType",
+          "base64",
+          "width",
+          "height",
+          "alt"
+        ],
+        "additionalProperties": false
+      },
+      "activityBar": {
+        "type": "object",
+        "title": "原生图表",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "图表标题"
+          },
+          "categories": {
+            "type": "array",
+            "title": "类目",
+            "items": {
+              "type": "string",
+              "title": "类目"
+            },
+            "minItems": 1
+          },
+          "series": {
+            "type": "array",
+            "title": "系列",
+            "items": {
+              "type": "object",
+              "title": "数据系列",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "系列名"
+                },
+                "values": {
+                  "type": "array",
+                  "title": "数据值",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "values"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "title",
+          "categories",
+          "series"
+        ],
+        "additionalProperties": false
+      },
+      "teams": {
+        "type": "array",
+        "title": "团队列表",
+        "items": {
+          "type": "object",
+          "title": "团队",
+          "properties": {
+            "team": {
+              "type": "string",
+              "title": "团队名"
+            },
+            "overview": {
+              "type": "string",
+              "title": "团队说明"
+            },
+            "members": {
+              "type": "array",
+              "title": "成员",
+              "items": {
+                "type": "object",
+                "title": "成员",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "姓名"
+                  },
+                  "role": {
+                    "type": "string",
+                    "title": "职责"
+                  },
+                  "note": {
+                    "type": "string",
+                    "title": "说明"
+                  }
+                },
+                "required": [
+                  "name",
+                  "role",
+                  "note"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "team",
+            "overview",
+            "members"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "showAppendix": {
+        "type": "boolean",
+        "title": "显示附录"
+      },
+      "appendixText": {
+        "type": "string",
+        "title": "附录说明"
+      }
+    },
+    "required": [
+      "title",
+      "reportCode",
+      "period",
+      "chapters",
+      "groupRows",
+      "activityBar",
+      "teams",
+      "showAppendix"
+    ],
+    "additionalProperties": false
+  },
+  "renderConfig": {
+    "rowLoops": {
+      "groupRows": {
+        "groupBy": "group",
+        "mergeColumn": 0
+      }
+    },
+    "charts": {
+      "activityBar": "BAR"
+    },
+    "conditions": {
+      "showNoAppendix": {
+        "not": "showAppendix"
+      }
+    }
+  },
+  "sampleChildTemplates": {
+    "teams": "05-subtemplates/team"
+  }
+}

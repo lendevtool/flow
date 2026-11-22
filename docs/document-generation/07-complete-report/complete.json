@@ -1,0 +1,112 @@
+{
+  "title": "运营复核综合报告",
+  "reportCode": "FLOW-OPS-026",
+  "period": "2026 年 11 月",
+  "chapters": [
+    {
+      "heading": "资料复核",
+      "summary": "以平台留档的原件为准。",
+      "entries": [
+        {
+          "heading": "附件清单",
+          "content": "签收回执和批次底稿已经核对。"
+        },
+        {
+          "heading": "问题记录",
+          "content": "本批次没有待纠正的字段。"
+        }
+      ]
+    }
+  ],
+  "groupRows": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "分户复核",
+      "detail": "验证账户和余额",
+      "quantity": 4
+    },
+    {
+      "group": "审批",
+      "name": "审批登记",
+      "detail": "确认审批记录齐全",
+      "quantity": 1
+    },
+    {
+      "group": "归档",
+      "name": "归档清单",
+      "detail": "整理交付附件",
+      "quantity": 3
+    },
+    {
+      "group": "归档",
+      "name": "成品归档",
+      "detail": "登记版本编号",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "补录复核",
+      "detail": "再次确认新增记录",
+      "quantity": 1
+    }
+  ],
+  "logo": {
+    "mediaType": "image/png",
+    "base64": "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",
+    "width": 265,
+    "height": 66,
+    "alt": "Flow 已核对业务资料"
+  },
+  "activityBar": {
+    "title": "月度办理量",
+    "categories": [
+      "八月",
+      "九月",
+      "十月"
+    ],
+    "series": [
+      {
+        "name": "收件",
+        "values": [
+          16,
+          25,
+          22
+        ]
+      },
+      {
+        "name": "完成",
+        "values": [
+          14,
+          21,
+          23
+        ]
+      }
+    ]
+  },
+  "teams": [
+    {
+      "team": "运营复核组",
+      "overview": "检查提交内容并登记处理结果。",
+      "members": [
+        {
+          "name": "李澄",
+          "role": "资料复核",
+          "note": "核对文件完整性。"
+        },
+        {
+          "name": "周远",
+          "role": "记录维护",
+          "note": "登记版本与处理人。"
+        }
+      ]
+    }
+  ],
+  "showAppendix": true,
+  "appendixText": "纸质材料以签收清单为准。"
+}

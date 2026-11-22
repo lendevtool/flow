@@ -1,0 +1,179 @@
+{
+  "title": "明细表多行",
+  "items": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "分户复核",
+      "detail": "验证账户和余额",
+      "quantity": 4
+    },
+    {
+      "group": "审批",
+      "name": "审批登记",
+      "detail": "确认审批记录齐全",
+      "quantity": 1
+    },
+    {
+      "group": "归档",
+      "name": "归档清单",
+      "detail": "整理交付附件",
+      "quantity": 3
+    },
+    {
+      "group": "归档",
+      "name": "成品归档",
+      "detail": "登记版本编号",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "补录复核",
+      "detail": "再次确认新增记录",
+      "quantity": 1
+    }
+  ],
+  "wideRows": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "分户复核",
+      "detail": "验证账户和余额",
+      "quantity": 4
+    },
+    {
+      "group": "审批",
+      "name": "审批登记",
+      "detail": "确认审批记录齐全",
+      "quantity": 1
+    },
+    {
+      "group": "归档",
+      "name": "归档清单",
+      "detail": "整理交付附件",
+      "quantity": 3
+    },
+    {
+      "group": "归档",
+      "name": "成品归档",
+      "detail": "登记版本编号",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "补录复核",
+      "detail": "再次确认新增记录",
+      "quantity": 1
+    }
+  ],
+  "fixedRows": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "分户复核",
+      "detail": "验证账户和余额",
+      "quantity": 4
+    },
+    {
+      "group": "审批",
+      "name": "审批登记",
+      "detail": "确认审批记录齐全",
+      "quantity": 1
+    },
+    {
+      "group": "归档",
+      "name": "归档清单",
+      "detail": "整理交付附件",
+      "quantity": 3
+    },
+    {
+      "group": "归档",
+      "name": "成品归档",
+      "detail": "登记版本编号",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "补录复核",
+      "detail": "再次确认新增记录",
+      "quantity": 1
+    }
+  ],
+  "groupRows": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "分户复核",
+      "detail": "验证账户和余额",
+      "quantity": 4
+    },
+    {
+      "group": "审批",
+      "name": "审批登记",
+      "detail": "确认审批记录齐全",
+      "quantity": 1
+    },
+    {
+      "group": "归档",
+      "name": "归档清单",
+      "detail": "整理交付附件",
+      "quantity": 3
+    },
+    {
+      "group": "归档",
+      "name": "成品归档",
+      "detail": "登记版本编号",
+      "quantity": 2
+    },
+    {
+      "group": "复核",
+      "name": "补录复核",
+      "detail": "再次确认新增记录",
+      "quantity": 1
+    }
+  ],
+  "summary": {
+    "headers": [
+      "分组",
+      "条数",
+      "复核状态"
+    ],
+    "rows": [
+      [
+        "复核",
+        3,
+        "已核对"
+      ],
+      [
+        "审批",
+        1,
+        "已核对"
+      ],
+      [
+        "归档",
+        2,
+        "已核对"
+      ]
+    ]
+  }
+}

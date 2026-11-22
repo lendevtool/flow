@@ -1,0 +1,7 @@
+.DS_Store
+.github/
+.idea/
+.vscode/
+docs/temp
+*.iml
+*.log

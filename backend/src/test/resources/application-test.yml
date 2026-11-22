@@ -1,0 +1,34 @@
+# 使用独立的测试 Redis，隔离应用数据。
+spring:
+  sql:
+    init:
+      data-locations: classpath:db/test-data.sql
+  data:
+    redis:
+      host: ${TEST_REDIS_HOST:127.0.0.1}
+      port: ${TEST_REDIS_PORT:16379}
+      database: ${TEST_REDIS_DATABASE:15}
+      username: ${TEST_REDIS_USERNAME:}
+      password: ${TEST_REDIS_PASSWORD:}
+
+audit:
+  worker-enabled: false
+
+workbench:
+  todo-series:
+    worker-enabled: false
+
+workflow:
+  notification:
+    delivery:
+      enabled: false
+
+security:
+  mfa:
+    rotation-worker-enabled: false
+
+document:
+  generation:
+    samples:
+      enabled: false
+    maintenance-enabled: false

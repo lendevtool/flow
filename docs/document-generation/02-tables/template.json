@@ -1,0 +1,210 @@
+{
+  "code": "sample-tables",
+  "name": "循环、动态表格与合并",
+  "templateFormat": "POI_TL_V1",
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "明细表",
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "文件标题"
+      },
+      "items": {
+        "type": "array",
+        "title": "明细",
+        "items": {
+          "type": "object",
+          "title": "一条明细",
+          "properties": {
+            "group": {
+              "type": "string",
+              "title": "业务分组"
+            },
+            "name": {
+              "type": "string",
+              "title": "项目名称"
+            },
+            "detail": {
+              "type": "string",
+              "title": "描述"
+            },
+            "quantity": {
+              "type": "integer",
+              "title": "数量",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "group",
+            "name",
+            "detail",
+            "quantity"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "wideRows": {
+        "type": "array",
+        "title": "横向合并明细",
+        "items": {
+          "type": "object",
+          "title": "一条明细",
+          "properties": {
+            "group": {
+              "type": "string",
+              "title": "业务分组"
+            },
+            "name": {
+              "type": "string",
+              "title": "项目名称"
+            },
+            "detail": {
+              "type": "string",
+              "title": "描述"
+            },
+            "quantity": {
+              "type": "integer",
+              "title": "数量",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "group",
+            "name",
+            "detail",
+            "quantity"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "fixedRows": {
+        "type": "array",
+        "title": "固定表头明细",
+        "items": {
+          "type": "object",
+          "title": "一条明细",
+          "properties": {
+            "group": {
+              "type": "string",
+              "title": "业务分组"
+            },
+            "name": {
+              "type": "string",
+              "title": "项目名称"
+            },
+            "detail": {
+              "type": "string",
+              "title": "描述"
+            },
+            "quantity": {
+              "type": "integer",
+              "title": "数量",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "group",
+            "name",
+            "detail",
+            "quantity"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "groupRows": {
+        "type": "array",
+        "title": "按组纵向合并明细",
+        "items": {
+          "type": "object",
+          "title": "一条明细",
+          "properties": {
+            "group": {
+              "type": "string",
+              "title": "业务分组"
+            },
+            "name": {
+              "type": "string",
+              "title": "项目名称"
+            },
+            "detail": {
+              "type": "string",
+              "title": "描述"
+            },
+            "quantity": {
+              "type": "integer",
+              "title": "数量",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "group",
+            "name",
+            "detail",
+            "quantity"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "summary": {
+        "type": "object",
+        "title": "统计表",
+        "properties": {
+          "headers": {
+            "type": "array",
+            "title": "表头",
+            "items": {
+              "type": "string",
+              "title": "列名"
+            },
+            "minItems": 2,
+            "maxItems": 5
+          },
+          "rows": {
+            "type": "array",
+            "title": "统计行",
+            "items": {
+              "type": "array",
+              "title": "单元格",
+              "items": {
+                "type": [
+                  "string",
+                  "integer",
+                  "number",
+                  "boolean",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "required": [
+          "headers",
+          "rows"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "title",
+      "items",
+      "wideRows",
+      "fixedRows",
+      "groupRows",
+      "summary"
+    ],
+    "additionalProperties": false
+  },
+  "renderConfig": {
+    "rowLoops": {
+      "items": {},
+      "wideRows": {},
+      "fixedRows": {},
+      "groupRows": {
+        "groupBy": "group",
+        "mergeColumn": 0
+      }
+    }
+  }
+}

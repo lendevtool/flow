@@ -1,0 +1,70 @@
+{
+  "name": "vue-naive-admin",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit",
+    "typecheck:ts7": "node node_modules/typescript-next/bin/tsc --noEmit",
+    "preview": "vite preview",
+    "lint:fix": "eslint --fix",
+    "postinstall": "simple-git-hooks",
+    "up": "taze major -I"
+  },
+  "dependencies": {
+    "@arco-design/color": "^0.4.0",
+    "@vueuse/core": "^15.0.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "axios": "^1.21.1",
+    "dayjs": "^1.11.23",
+    "docx-preview": "0.4.1",
+    "echarts": "^6.1.0",
+    "jszip": "^3.10.2",
+    "lodash-es": "^4.18.1",
+    "naive-ui": "^2.45.3",
+    "pinia": "^4.1.0",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "pro-naive-ui": "^3.2.3",
+    "vue": "^3.5.46",
+    "vue-echarts": "^8.3.2",
+    "vue-router": "^5.5.1",
+    "vue3-intro-step": "^1.0.5",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^10.0.0",
+    "@iconify/json": "^2.2.556",
+    "@iconify/utils": "^3.1.7",
+    "@unocss/eslint-plugin": "^66.13.0",
+    "@unocss/preset-rem-to-px": "^66.13.0",
+    "@vitejs/plugin-vue": "^6.0.11",
+    "eslint": "^10.15.0",
+    "eslint-plugin-format": "^2.0.1",
+    "glob": "^14.0.6",
+    "jsdom": "^31.0.1",
+    "lint-staged": "^17.6.1",
+    "simple-git-hooks": "^2.14.0",
+    "taze": "^21.3.0",
+    "typescript": "6.0.3",
+    "typescript-next": "npm:typescript@^7.0.2",
+    "unocss": "^66.13.0",
+    "unplugin-auto-import": "^21.1.0",
+    "unplugin-vue-components": "^32.1.0",
+    "vite": "^8.3.8",
+    "vite-plugin-router-warn": "^3.0.0",
+    "vite-plugin-vue-devtools": "^8.2.1",
+    "vitest": "^5.1.1",
+    "vue-tsc": "^3.3.14"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "cd frontend && PATH=\"$PWD/node_modules/.bin:$PATH\" ./node_modules/.bin/lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

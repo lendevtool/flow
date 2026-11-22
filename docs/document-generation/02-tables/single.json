@@ -1,0 +1,47 @@
+{
+  "title": "明细表单行",
+  "items": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    }
+  ],
+  "wideRows": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    }
+  ],
+  "fixedRows": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    }
+  ],
+  "groupRows": [
+    {
+      "group": "复核",
+      "name": "资料核对",
+      "detail": "检查附件与台账",
+      "quantity": 2
+    }
+  ],
+  "summary": {
+    "headers": [
+      "处理项",
+      "条数"
+    ],
+    "rows": [
+      [
+        "资料核对",
+        2
+      ]
+    ]
+  }
+}

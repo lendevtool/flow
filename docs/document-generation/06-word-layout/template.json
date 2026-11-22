@@ -1,0 +1,50 @@
+{
+  "code": "sample-word-layout",
+  "name": "目录、页码与页眉页脚",
+  "templateFormat": "POI_TL_V1",
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "Word 版式报告",
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "文件标题"
+      },
+      "reportCode": {
+        "type": "string",
+        "title": "报告编号"
+      },
+      "period": {
+        "type": "string",
+        "title": "报告期间"
+      },
+      "overview": {
+        "type": "string",
+        "title": "摘要"
+      },
+      "items": {
+        "type": "array",
+        "title": "复核步骤",
+        "items": {
+          "type": "string",
+          "title": "步骤"
+        }
+      },
+      "archiveOwner": {
+        "type": "string",
+        "title": "归档负责人"
+      }
+    },
+    "required": [
+      "title",
+      "reportCode",
+      "period",
+      "overview",
+      "items",
+      "archiveOwner"
+    ],
+    "additionalProperties": false
+  },
+  "renderConfig": {}
+}

@@ -1,0 +1,71 @@
+{
+  "code": "sample-fields",
+  "name": "基础字段",
+  "templateFormat": "POI_TL_V1",
+  "inputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "业务办理单",
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "文件标题"
+      },
+      "caseInfo": {
+        "type": "object",
+        "title": "办理信息",
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "事项编号"
+          },
+          "organization": {
+            "type": "string",
+            "title": "机构名称"
+          },
+          "receivedOn": {
+            "type": "string",
+            "title": "受理日期",
+            "format": "date"
+          },
+          "itemCount": {
+            "type": "integer",
+            "title": "待办数",
+            "minimum": 0
+          },
+          "confirmed": {
+            "type": "boolean",
+            "title": "是否确认"
+          }
+        },
+        "required": [
+          "code",
+          "organization",
+          "receivedOn",
+          "itemCount",
+          "confirmed"
+        ],
+        "additionalProperties": false
+      },
+      "notes": {
+        "type": "string",
+        "title": "处理意见",
+        "description": "支持换行"
+      },
+      "optionalContact": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "title": "联系人"
+      }
+    },
+    "required": [
+      "title",
+      "caseInfo",
+      "notes"
+    ],
+    "additionalProperties": false
+  },
+  "renderConfig": {}
+}
