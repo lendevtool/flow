@@ -116,16 +116,20 @@ const columns = computed<DataTableColumns<ProductSummary>>(() => {
       key: 'name',
       minWidth: 155,
       ellipsis: { tooltip: true },
-      render: row => h(NButton, {
-        'text': true,
-        'type': 'primary',
-        'class': 'product-name',
-        'disabled': saving.value,
-        'aria-current': split.value && previewId.value === row.id
-          ? 'true'
-          : undefined,
-        'onClick': () => openProduct(row.id),
-      }, () => h('span', row.name)),
+      render: (row) => {
+        const selected = split.value && previewId.value === row.id
+        return h('button', {
+          'type': 'button',
+          'class': [
+            'min-h-24 max-w-full truncate border-0 bg-transparent p-0 text-left text-primary align-middle',
+            'disabled:cursor-not-allowed disabled:opacity-50',
+            { 'font-semibold': selected },
+          ],
+          'disabled': saving.value,
+          'aria-current': selected ? 'true' : undefined,
+          'onClick': () => openProduct(row.id),
+        }, row.name)
+      },
     },
   ]
   if (!split.value) {
@@ -246,21 +250,6 @@ function openProduct(id: number) {
   padding-inline-start: 16px;
   margin-inline-start: 16px;
   border-inline-start: 1px solid v-bind(borderColor);
-}
-
-:deep(.product-name) {
-  max-width: 100%;
-  min-height: 24px;
-}
-
-:deep(.product-name .n-button__content),
-:deep(.product-name .n-button__content span) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-:deep(.product-name[aria-current='true']) {
-  font-weight: 600;
 }
 
 @media (max-width: 1000px) {

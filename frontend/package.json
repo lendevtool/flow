@@ -35,7 +35,7 @@
     "vue-echarts": "^8.3.2",
     "vue-router": "^5.5.1",
     "vue3-intro-step": "^1.0.5",
-    "xlsx": "^0.18.5"
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^10.0.0",
