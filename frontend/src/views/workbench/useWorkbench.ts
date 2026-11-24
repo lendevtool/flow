@@ -8,7 +8,8 @@ import { workbenchError } from './model'
 export function useWorkbenchPermission(): (code: string) => boolean {
   const user = useUserStore()
   const permissions = usePermissionStore()
-  return code => user.currentRole.code === 'SUPER_ADMIN' || permissions.resourcesByCode.has(code)
+  const mock = import.meta.env.DEV && import.meta.env.MODE === 'mock'
+  return code => (!mock && user.currentRole.code === 'SUPER_ADMIN') || permissions.resourcesByCode.has(code)
 }
 
 export function useWorkbenchRequest<T>(initial: T) {

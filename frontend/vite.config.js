@@ -12,11 +12,10 @@ import { pluginIcons, pluginPagePathes } from './build/plugin-isme/index.js'
 
 const require = createRequire(import.meta.url)
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(async ({ command, mode, isPreview }) => {
   const viteEnv = loadEnv(mode, process.cwd())
   const { VITE_PUBLIC_PATH, VITE_PROXY_TARGET } = viteEnv
-
-  return {
+  const config = {
     base: VITE_PUBLIC_PATH || '/',
     plugins: [
       Vue(),
@@ -78,6 +77,30 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       chunkSizeWarningLimit: 1024, // chunk 大小警告的限制（单位kb）
+    },
+  }
+
+  if (command !== 'serve' || mode !== 'mock' || isPreview)
+    return config
+
+  const { mockApiPlugin } = await import('./mock/server.js')
+  return {
+    ...config,
+    base: '/',
+    define: {
+      'import.meta.env.VITE_AXIOS_BASE_URL': JSON.stringify('/api'),
+      'import.meta.env.VITE_PUBLIC_PATH': JSON.stringify('/'),
+    },
+    plugins: [
+      mockApiPlugin(),
+      ...config.plugins,
+    ],
+    // 独立端口使演示会话和真实后端会话各自保存在浏览器中。
+    server: {
+      host: '127.0.0.1',
+      port: 3087,
+      strictPort: true,
+      open: false,
     },
   }
 })

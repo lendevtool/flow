@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex flex-col overflow-hidden">
+  <div class="flex flex-col overflow-hidden" :class="{ 'h-full': flexHeight }">
     <AppCard v-if="$slots.default" bordered bg="#fafafc dark:black" class="mb-30 min-h-60 rounded-4">
       <form class="me-crud-query flex justify-between p-16" @submit.prevent="handleSearch()">
         <n-scrollbar x-scrollable>
@@ -43,8 +43,8 @@
       :row-key="(row) => row[rowKey]"
       :checked-row-keys="checkedRowKeys"
       :pagination="isPagination ? pagination : false"
-      flex-height
-      class="flex-1"
+      :flex-height="flexHeight"
+      :class="{ 'flex-1': flexHeight }"
       @update:checked-row-keys="onChecked"
       @update:page="onPageChange"
     >
@@ -83,6 +83,10 @@ const props = defineProps({
   scrollX: {
     type: Number,
     default: 1200,
+  },
+  flexHeight: {
+    type: Boolean,
+    default: true,
   },
   rowKey: {
     type: String,

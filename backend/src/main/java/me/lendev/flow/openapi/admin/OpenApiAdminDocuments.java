@@ -20,6 +20,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.util.function.SingletonSupplier;
 import org.springframework.web.method.HandlerMethod;
+import tools.jackson.core.JacksonException;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.node.ObjectNode;
@@ -164,7 +165,7 @@ class OpenApiAdminDocuments {
     private ObjectNode generate(Locale locale) {
         try {
             return (ObjectNode) json.readTree(renderer.obtain().render(locale));
-        } catch (BeansException | com.fasterxml.jackson.core.JsonProcessingException failure) {
+        } catch (BeansException | JacksonException failure) {
             throw OpenApiAdminFailure.docsUnavailable();
         }
     }
@@ -256,7 +257,7 @@ class OpenApiAdminDocuments {
             this.baseUrl = baseUrl;
         }
 
-        byte[] render(Locale locale) throws com.fasterxml.jackson.core.JsonProcessingException {
+        byte[] render(Locale locale) {
             return writeJsonValue(getOpenApi(baseUrl, locale));
         }
 

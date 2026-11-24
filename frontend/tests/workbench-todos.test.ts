@@ -1,5 +1,31 @@
-import { describe, expect, it } from 'vitest'
+import { createPinia, disposePinia, setActivePinia } from 'pinia'
+import { describe, expect, it, vi } from 'vitest'
+import { usePermissionStore, useUserStore } from '@/store'
 import { calendarDays, calendarPlacement, datePreset, dimensionQuery, formatBusinessToday } from '../src/views/workbench/model'
+import { useWorkbenchPermission } from '../src/views/workbench/useWorkbench'
+
+it('keeps unsupported workbench controls hidden from the mock system administrator', () => {
+  const pinia = createPinia()
+  setActivePinia(pinia)
+  useUserStore().setUser({
+    currentRole: { code: 'SUPER_ADMIN' },
+  })
+  usePermissionStore().permissions = [
+    { code: 'WorkbenchTodoAll' },
+  ]
+  try {
+    vi.stubEnv('DEV', true)
+    vi.stubEnv('MODE', 'mock')
+    expect(useWorkbenchPermission()('WorkbenchTodoCreate')).toBe(false)
+    expect(useWorkbenchPermission()('WorkbenchTodoAll')).toBe(true)
+    vi.stubEnv('MODE', 'development')
+    expect(useWorkbenchPermission()('WorkbenchTodoCreate')).toBe(true)
+  }
+  finally {
+    vi.unstubAllEnvs()
+    disposePinia(pinia)
+  }
+})
 
 describe('workbench dates', () => {
   it('uses Shanghai today and Monday as the beginning of the week', () => {

@@ -21,12 +21,12 @@
         <sa-token.version>1.46.0</sa-token.version>
         <mybatis-flex.version>1.11.8</mybatis-flex.version>
         <knife4j.version>4.5.0</knife4j.version>
-        <springdoc.version>3.2.0</springdoc.version>
+        <springdoc.version>3.2.1</springdoc.version>
         <poi.version>6.0.0</poi.version>
         <zxing.version>3.5.4</zxing.version>
         <bcprov.version>1.87</bcprov.version>
-        <commonmark.version>0.32.0</commonmark.version>
-        <hibernate-validator.version>9.1.6.Final</hibernate-validator.version>
+        <commonmark.version>0.33.0</commonmark.version>
+        <hibernate-validator.version>9.2.0.Final</hibernate-validator.version>
         <mysql.version>26.10.0</mysql.version>
         <h2.version>2.5.252</h2.version>
         <jacoco.version>0.8.16</jacoco.version>
